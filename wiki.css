@@ -9,6 +9,7 @@
 nav{flex:0 0 215px;position:sticky;top:54px;height:calc(100vh - 54px);overflow:auto;padding:16px 12px;border-right:1px solid var(--line);font:13px sans-serif}
 nav a{display:block;padding:3px 8px;color:var(--ink);text-decoration:none;border-radius:5px}nav a:hover{background:#ece9e3}nav a.active{background:var(--accent);color:#fff}
 .navhead{font-weight:700;text-transform:uppercase;font-size:10.5px;letter-spacing:1px;color:var(--mut);margin:13px 0 4px;padding-left:8px}.navhead:first-child{margin-top:0}
+.navver{margin-top:18px;padding:8px;font-size:10px;color:var(--mut);opacity:.7}
 main{flex:1;padding:8px 30px 80px;min-width:0}
 h1{font-size:26px;margin:.2em 0 .6em;border-bottom:2px solid var(--accent);padding-bottom:.2em}
 h1 .count,.count{font:13px sans-serif;background:#eee4f7;color:var(--accent);padding:2px 9px;border-radius:11px;vertical-align:middle}
