@@ -9,7 +9,6 @@
 nav{flex:0 0 215px;position:sticky;top:54px;height:calc(100vh - 54px);overflow:auto;padding:16px 12px;border-right:1px solid var(--line);font:13px sans-serif}
 nav a{display:block;padding:3px 8px;color:var(--ink);text-decoration:none;border-radius:5px}nav a:hover{background:#ece9e3}nav a.active{background:var(--accent);color:#fff}
 .navhead{font-weight:700;text-transform:uppercase;font-size:10.5px;letter-spacing:1px;color:var(--mut);margin:13px 0 4px;padding-left:8px}.navhead:first-child{margin-top:0}
-.navver{margin-top:18px;padding:8px;font-size:10px;color:var(--mut);opacity:.7}
 main{flex:1;padding:8px 30px 80px;min-width:0}
 h1{font-size:26px;margin:.2em 0 .6em;border-bottom:2px solid var(--accent);padding-bottom:.2em}
 h1 .count,.count{font:13px sans-serif;background:#eee4f7;color:var(--accent);padding:2px 9px;border-radius:11px;vertical-align:middle}
@@ -19,6 +18,10 @@ table.pursuits{border-collapse:collapse;width:100%;font:13px sans-serif;backgrou
 table.pursuits th{background:#f1efe9;text-align:left;padding:7px 9px;font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--mut)}
 table.pursuits td{padding:7px 9px;border-top:1px solid #efeee9;vertical-align:top}table.pursuits tr:hover td{background:#fcfbff}
 td.nm{font-weight:700;white-space:nowrap;font-family:Georgia,serif}.dim{color:#ccc}
+table.tacticmatrix{font-size:11.5px;display:block;overflow-x:auto}
+table.tacticmatrix th{white-space:nowrap}
+table.tacticmatrix tbody th{background:#f1efe9;font-family:Georgia,serif;text-transform:none;letter-spacing:0;font-size:12px;color:var(--ink);position:sticky;left:0}
+table.tacticmatrix td{white-space:nowrap;font-size:11px}
 .gate{color:var(--mut);font-size:12px}
 ul.cols{columns:2;font:14px sans-serif;list-style:none;padding:0}ul.cols li{margin:3px 0;break-inside:avoid}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-top:1em}
@@ -44,4 +47,5 @@ code{background:#efeee9;padding:1px 5px;border-radius:4px;font-size:.9em}
 .pn{padding:8px 14px;border:1px solid var(--line);border-radius:7px;text-decoration:none;color:var(--ink);max-width:46%;border-bottom:1px solid var(--line)!important}
 .pn:hover{border-color:var(--accent);background:#faf7fe}
 .pn.next{margin-left:auto;text-align:right}
+.versionstamp{position:fixed;bottom:8px;right:12px;font-family:sans-serif;font-size:11px;color:var(--mut);opacity:.6;pointer-events:none}
 @media(max-width:760px){.wrap{flex-direction:column}nav{position:static;height:auto;flex:none;border-right:0;border-bottom:1px solid var(--line)}}
