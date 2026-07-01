@@ -6,10 +6,13 @@
 <a href='rules-renown.html'>Renown</a>
 <a href='rules-introduction.html'>Introduction</a>
 <a href='rules-core-principles.html'>Core Principles</a>
-<a href='rules-phase-reference.html'>Phase Reference</a>
+<a href='rules-the-turn.html'>The Turn</a>
+<a href='rules-empire-phase.html'>Empire Phase</a>
 <a href='rules-council-phase.html'>Council Phase</a>
 <a href='rules-envoy-phase.html'>Envoy Phase</a>
+<a href='rules-battle-phase.html'>Battle Phase</a>
 <a href='rules-rest-phase.html'>Rest Phase</a>
+<a href='rules-seasons.html'>Seasons</a>
 <a href='rules-action-mechanics.html'>Action Mechanics</a>
 <a href='rules-influence.html'>Influence</a>
 <a href='rules-prowess-actions.html'>Prowess Actions</a>
@@ -17,19 +20,18 @@
 <a href='rules-piety-actions.html'>Piety Actions</a>
 <a href='rules-industry-actions.html'>Industry Actions</a>
 <a href='rules-diplomacy-actions.html'>Diplomacy Actions</a>
-<a href='rules-diplomacy-treaties.html'>Diplomacy &amp; Treaties</a>
 <a href='rules-domains-standings.html'>Domains &amp; Standings</a>
-<a href='rules-public-order.html'>Public Order</a>
-<a href='rules-treasury-upkeep.html'>Treasury &amp; Upkeep</a>
-<a href='rules-trade-income.html'>Trade &amp; Income</a>
+<a href='rules-diplomacy-treaties.html'>Diplomacy &amp; Treaties</a>
 <a href='rules-settlements.html'>Settlements</a>
 <a href='rules-infrastructure.html' class=active>Infrastructure</a>
 <a href='rules-territory-terrain.html'>Territory &amp; Terrain</a>
+<a href='rules-public-order.html'>Public Order</a>
+<a href='rules-treasury-upkeep.html'>Treasury &amp; Upkeep</a>
+<a href='rules-trade-income.html'>Trade &amp; Income</a>
 <a href='rules-armies.html'>Armies</a>
 <a href='rules-battle-phase.html'>Battle Phase</a>
 <a href='rules-siege-warfare.html'>Siege Warfare</a>
-<a href='rules-seasons.html'>Seasons</a>
-<a href='rules-bandit-mechanics.html'>Bandit Mechanics</a>
+<a href='rules-bandits.html'>Bandits</a>
 <div class="navhead">Pursuits</div>
 <a href='pursuits.html'>Overview</a>
 <a href='type-raw-materials.html'>Raw Materials</a>
@@ -80,8 +82,8 @@
 <p> 	Infrastructure is broken into 5 different tiers that are arranged in ascending tiers. First, there’s <strong>primitive</strong> infrastructure, that builds the basic blocks of your empire. Next, there’s <strong>developed</strong> infrastructure, which expands and replaces some <strong>primitive</strong> infrastructure. Then, there’s <strong>sophisticated</strong> infrastructure, which allows for more powerful effects and helps unlock unique <strong><a class="term" href="glossary.html#monument">monument</a></strong> <strong>pursuits</strong>. Only a single infrastructure can have an active <strong><a class="term" href="glossary.html#build">build</a> timer</strong> concurrently.</p>
 <p> 	Lastly, there’s <strong>world wonders</strong>. <strong>Wonders</strong> are unique infrastructure that each can only be built once per game, once all other infrastructure is <strong>built</strong> and <strong>active</strong> in your <strong>empire</strong>. These are <a class="term" href="glossary.html#edict">Edict</a> satisfying buildings that provide very powerful effects. <strong>Wonders</strong> exist inside your <strong>capital</strong> and cannot be <strong>razed</strong> or <strong>damaged</strong>.</p>
 <p>The full list of infrastructure — their tiers, <a class="term" href="glossary.html#build">build</a> times, upkeep, requirements, and effects:</p>
-<p>{{TABLE:infrastructure}}</p>
+<table class='pursuits'><thead><tr><th><a class="term" href="glossary.html#build">Build</a></th><th>Tier</th><th>Upkeep</th><th><a class="term" href="glossary.html#build">Build</a> Time</th><th>Requirement</th><th>Effect</th></tr></thead><tbody><tr><td>Dirt Roads</td><td>Primitive</td><td>0</td><td>2</td><td>None</td><td>Can Trade; place Dirt Road Territories in <a class="term" href="glossary.html#province">Province</a>; ignore Terrain <a class="term" href="glossary.html#speed">Speed</a> Modifiers</td></tr><tr><td>Hitching Post</td><td>Primitive</td><td>0</td><td>2</td><td>None</td><td>Craft +1</td></tr><tr><td><a class="term" href="glossary.html#muster">Muster</a> <a class="term" href="glossary.html#field">Field</a></td><td>Primitive</td><td>100</td><td>2</td><td>None</td><td>Can <a class="term" href="glossary.html#muster">Muster</a></td></tr><tr><td>Wooden Walls</td><td>Primitive</td><td>100</td><td>2</td><td>None</td><td><strong><a class="term" href="glossary.html#influence">Influence</a> -1</strong> to <strong>Raze actions</strong> targeting your <strong><a class="term" href="rules-settlements.html">settlements</a></strong></td></tr><tr><td>Bridges</td><td>Developed</td><td>0</td><td>3</td><td>One Tier Primitive + Stone Roads</td><td>Armies cross Water <a class="term" href="glossary.html#territory">Territory</a> at full movement; Stone Roads may be built over Water</td></tr><tr><td>Garrison</td><td>Developed</td><td>200</td><td>3</td><td><a class="term" href="glossary.html#muster">Muster</a> <a class="term" href="glossary.html#field">Field</a></td><td>Local Armies form (10/15/25 by <a class="term" href="rules-settlements.html">Settlement</a> size). All Garrisons share Equipment. Cannot be targeted; may Sally Forth.</td></tr><tr><td>Stone Roads</td><td>Developed</td><td>100</td><td>3</td><td>Dirt Roads</td><td>Ignore Terrain <a class="term" href="glossary.html#speed">Speed</a> Modifiers; if you start turn on Stone Road gain <a class="term" href="glossary.html#speed">Speed</a> +2; replaces Dirt Roads</td></tr><tr><td>Town Hall</td><td>Developed</td><td>100</td><td>3</td><td>One Tier Primitive</td><td>+1 <a class="term" href="glossary.html#influence">Influence</a> per turn</td></tr><tr><td>Cathedral</td><td>Sophisticated</td><td>100</td><td>4</td><td>Requires 1+ City</td><td>Faith +1</td></tr><tr><td>Keep</td><td>Sophisticated</td><td>100</td><td>4</td><td>Garrison</td><td>May <a class="term" href="glossary.html#muster">Muster</a> from Garrison in addition to normal <a class="term" href="glossary.html#muster">Muster</a> Limits. If so set Garrison to 0 and <a class="term" href="glossary.html#muster">Muster</a> Timer 1. Garrison returns to full when resolved.</td></tr><tr><td>Library</td><td>Sophisticated</td><td>200</td><td>4</td><td>Town Hall</td><td><a class="term" href="glossary.html#influence">Influence</a> +1 to Council Envoys</td></tr><tr><td>Stone Walls</td><td>Sophisticated</td><td>100</td><td>4</td><td>One Tier Developed + Wooden Walls</td><td><strong><a class="term" href="glossary.html#influence">Influence</a> -1</strong> to <strong>Destabilize actions</strong> targeting your <strong><a class="term" href="rules-settlements.html">settlements</a></strong></td></tr></tbody></table>
 <p>World Wonders:</p>
-<p>{{TABLE:wonders}}</p><div class="pagefoot"><div class='related'><span class='rl'>Related:</span> <a class='term' href='glossary.html'>Glossary</a> <a class='term' href='rules-settlements.html'>Settlements</a> <a class='term' href='rules-introduction.html'>Introduction</a> <a class='term' href='turn-sequence.html'>Turn Sequence</a> <a class='term' href='type-power.html'>Power</a> <a class='term' href='type-civic.html'>Civic</a></div><div class='prevnext'><a class='pn prev' href='rules-settlements.html'>← Settlements</a><a class='pn next' href='rules-territory-terrain.html'>Territory &amp; Terrain →</a></div></div></main></div>
+<table class='pursuits'><thead><tr><th>Wonder</th><th><a class="term" href="glossary.html#build">Build</a> Time</th><th>Upkeep</th><th>Effect</th></tr></thead><tbody><tr><td>Colossus</td><td>10</td><td>500</td><td>You may <strong>support</strong> your own <strong>prowess envoys</strong> before other <strong>players <a class="term" href="glossary.html#vote">vote</a></strong>. <strong>Armies</strong> <a class="term" href="glossary.html#move">move</a> <strong><a class="term" href="glossary.html#speed">Speed</a> +2</strong> <strong><a class="term" href="glossary.html#siege">Siege</a> Timer -2</strong> gain <strong>Immune <a class="term" href="glossary.html#blunder">Blunder</a></strong>.</td></tr><tr><td>The Grand Exchange</td><td>10</td><td>500</td><td>Whenever you generate <strong>Trade Income</strong> you generate <strong>twice as much</strong> for yourself.</td></tr><tr><td>The Great Basilica</td><td>10</td><td>500</td><td>If your <strong><a class="term" href="glossary.html#public-order">Public Order</a></strong> would ever be less than 5 set it to 5 instead. Your <strong><a class="term" href="rules-settlements.html">Settlements</a></strong> gain <strong><a class="term" href="glossary.html#reach">Reach</a> +1</strong>.</td></tr><tr><td>High Chancery</td><td>10</td><td>500</td><td>Once per turn: automatically <strong>Condemn</strong> or <strong>Endorse</strong> one <a class="term" href="glossary.html#envoy">Envoy</a> Sent by any other player regardless of <strong><a class="term" href="glossary.html#net-influence">Net Influence</a></strong> after <a class="term" href="glossary.html#influence">Influence</a> has been spent, even if it’s a <a class="term" href="glossary.html#council-envoy">Council Envoy</a>.</td></tr></tbody></table><div class="pagefoot"><div class='related'><span class='rl'>Related:</span> <a class='term' href='glossary.html'>Glossary</a> <a class='term' href='factions.html'>Factions</a> <a class='term' href='type-civic.html'>Civic</a> <a class='term' href='rules-piety-actions.html'>Piety Actions</a> <a class='term' href='type-power.html'>Power</a> <a class='term' href='type-monument.html'>Monument</a></div><div class='prevnext'><a class='pn prev' href='rules-settlements.html'>← Settlements</a><a class='pn next' href='rules-territory-terrain.html'>Territory &amp; Terrain →</a></div></div></main></div>
 <script src="search.js"></script>
-<div class="versionstamp">Renown v0.4.9.2.5</div></body></html>
+<div class="versionstamp">Renown v0.4.9.2.7</div></body></html>

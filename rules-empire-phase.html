@@ -1,15 +1,18 @@
 <!doctype html><html><head><meta charset="utf-8">
-<title>Phase Reference — Renown</title><link rel="stylesheet" href="wiki.css"></head><body>
+<title>Empire Phase — Renown</title><link rel="stylesheet" href="wiki.css"></head><body>
 <input id="q" placeholder="Search…" autocomplete="off"><div id="results"></div>
 <div class="wrap"><nav><div class="navhead">Rules</div>
 <a href='turn-sequence.html'>★ Turn Sequence</a>
 <a href='rules-renown.html'>Renown</a>
 <a href='rules-introduction.html'>Introduction</a>
 <a href='rules-core-principles.html'>Core Principles</a>
-<a href='rules-phase-reference.html' class=active>Phase Reference</a>
+<a href='rules-the-turn.html'>The Turn</a>
+<a href='rules-empire-phase.html' class=active>Empire Phase</a>
 <a href='rules-council-phase.html'>Council Phase</a>
 <a href='rules-envoy-phase.html'>Envoy Phase</a>
+<a href='rules-battle-phase.html'>Battle Phase</a>
 <a href='rules-rest-phase.html'>Rest Phase</a>
+<a href='rules-seasons.html'>Seasons</a>
 <a href='rules-action-mechanics.html'>Action Mechanics</a>
 <a href='rules-influence.html'>Influence</a>
 <a href='rules-prowess-actions.html'>Prowess Actions</a>
@@ -17,19 +20,18 @@
 <a href='rules-piety-actions.html'>Piety Actions</a>
 <a href='rules-industry-actions.html'>Industry Actions</a>
 <a href='rules-diplomacy-actions.html'>Diplomacy Actions</a>
-<a href='rules-diplomacy-treaties.html'>Diplomacy &amp; Treaties</a>
 <a href='rules-domains-standings.html'>Domains &amp; Standings</a>
-<a href='rules-public-order.html'>Public Order</a>
-<a href='rules-treasury-upkeep.html'>Treasury &amp; Upkeep</a>
-<a href='rules-trade-income.html'>Trade &amp; Income</a>
+<a href='rules-diplomacy-treaties.html'>Diplomacy &amp; Treaties</a>
 <a href='rules-settlements.html'>Settlements</a>
 <a href='rules-infrastructure.html'>Infrastructure</a>
 <a href='rules-territory-terrain.html'>Territory &amp; Terrain</a>
+<a href='rules-public-order.html'>Public Order</a>
+<a href='rules-treasury-upkeep.html'>Treasury &amp; Upkeep</a>
+<a href='rules-trade-income.html'>Trade &amp; Income</a>
 <a href='rules-armies.html'>Armies</a>
 <a href='rules-battle-phase.html'>Battle Phase</a>
 <a href='rules-siege-warfare.html'>Siege Warfare</a>
-<a href='rules-seasons.html'>Seasons</a>
-<a href='rules-bandit-mechanics.html'>Bandit Mechanics</a>
+<a href='rules-bandits.html'>Bandits</a>
 <div class="navhead">Pursuits</div>
 <a href='pursuits.html'>Overview</a>
 <a href='type-raw-materials.html'>Raw Materials</a>
@@ -74,15 +76,14 @@
 <a href='escalation-pursuits.html'>Combat Pursuits</a>
 <a href='tactic-matrix-ref.html'>Tactic Matrix</a>
 <a href='equipment-ref.html'>Equipment</a>
-<a href='keywords-ref.html'>Combat Keywords</a></nav><main><h2 id='phase-reference'>Phase Reference</h2>
-<h3 id='empire-phase-summary'>Empire Phase (summary)</h3>
+<a href='keywords-ref.html'>Combat Keywords</a></nav><main><h2 id='empire-phase'>Empire Phase</h2>
 <ul>
 <li><strong>Activate</strong> any <strong>unlocked <a class="term" href="glossary.html#domain">domain</a></strong> <strong><a class="term" href="glossary.html#standing">standing</a></strong> effects.</li>
 <li><strong>Gain seasonal effect</strong> — check the <strong>season</strong> of this <strong>turn</strong> and apply its effect.</li>
 <li><strong>Increment all eligible, active timers</strong> in this order: <a class="term" href="glossary.html#build">Build</a>, <a class="term" href="glossary.html#repair">Repair</a>, Truce, <a class="term" href="glossary.html#siege">Siege</a>, <a class="term" href="glossary.html#muster">Muster</a>, Sack, Capture Timers</li>
 <li><strong><a class="term" href="glossary.html#resolve">Resolve</a></strong> any timers incremented to 0.</li>
 <li>May place roads <a class="term" href="glossary.html#within">within</a> <a class="term" href="glossary.html#province">province</a>.</li>
-<li><strong>Host Resolves <a class="term" href="rules-bandit-mechanics.html">Bandit Mechanics</a>:</strong></li>
+<li><strong>Host Resolves <a class="term" href="glossary.html#bandit">Bandit</a> Mechanics:</strong></li>
 <ul>
 <li>Grow existing <strong><a class="term" href="glossary.html#bandit">bandit</a> camps</strong> according to <strong>Era</strong></li>
 <li>If a <strong>camp</strong> reaches 25, convert it to an <strong>army</strong></li>
@@ -106,45 +107,9 @@
 </ul>
 <li><strong>Trade</strong>: If there is a <strong>host</strong>, the <strong>host</strong> collects <strong>trade income</strong> and distributes it amongst their <strong>trade partners</strong>.</li>
 <li><strong>Extort —</strong> Any <strong>pursuits</strong> or effects that trigger <strong>extort</strong> are resolved now.</li>
-<li><strong>Determine <a class="term" href="glossary.html#public-order">public order</a></strong> — add all <strong>faith</strong> <strong>X</strong> accumulated since the last <strong><a class="term" href="glossary.html#public-order">public order</a></strong> step and subtract all <strong>doubt</strong> <strong>X</strong>; apply the result to your current <strong><a class="term" href="glossary.html#public-order">public order</a></strong>.</li>
+<li><strong>Apply innate <a class="term" href="glossary.html#public-order">Public Order</a> modifiers</strong> — check each Faith/Doubt source in the <a class="term" href="glossary.html#public-order">Public Order</a> tables and adjust your <a class="term" href="glossary.html#public-order">Public Order</a> now. (Faith/Doubt from actions are already applied the moment they are generated; see <a class="term" href="glossary.html#public-order">Public Order</a>.)</li>
 <li>All <strong>armies</strong> without <strong><a class="term" href="glossary.html#strained">strained</a></strong> gain <strong>+2 <a class="term" href="glossary.html#endurance">endurance</a></strong>, remove <strong><a class="term" href="glossary.html#strained">strained</a></strong> from all <strong>armies </strong><em>Note: they can immediately regain these effects after losing them if applicable.</em></li>
 <li>Do any remaining <strong>start of turn</strong> effects.</li>
-</ul>
-<h3 id='council-phase-summary'><a class="term" href="glossary.html#council-phase">Council Phase</a> (summary)</h3>
-<ul>
-<li><strong><a class="term" href="glossary.html#vote">Vote</a> on <a class="term" href="glossary.html#council-envoy">Council envoy</a></strong> — see <a class="term" href="glossary.html#council-phase">Council Phase</a> rules below.</li>
-</ul>
-<ul>
-<li><strong><a class="term" href="glossary.html#resolve">Resolve</a> Council envoys</strong> <em>(each Player performs exactly one action of the voted <a class="term" href="glossary.html#domain">Domain</a>)</em> in clockwise order from the <strong>starting</strong> <strong>player</strong>.</li>
-</ul>
-<p><em>Note: council envoys are automatically abstained and cannot have their <a class="term" href="glossary.html#net-influence">net influence</a> reduced to be less than 1.</em></p>
-<h3 id='<a class="term" href="glossary.html#envoy">envoy</a>-phase-summary'><a class="term" href="rules-envoy-phase.html">Envoy Phase</a> (summary)</h3>
-<h4 id='<a class="term" href="glossary.html#envoy">envoy</a>-declaration-phase'><a class="term" href="glossary.html#envoy">Envoy</a> Declaration Phase</h4>
-<p>All Players place their envoys in the <a class="term" href="glossary.html#domain">Domain</a> tray of their choice, from the starting player</p>
-<p><strong><a class="term" href="glossary.html#diplomacy">Diplomacy</a> Envoys</strong></p>
-<ul>
-<li><strong><a class="term" href="glossary.html#resolve">resolve</a></strong> <strong><a class="term" href="glossary.html#diplomacy">Diplomacy</a></strong> <strong>envoys</strong> from the <strong>starting player</strong>.</li>
-</ul>
-<p><strong><a class="term" href="glossary.html#domain">Domain</a> envoys</strong> (Resolved in this order):</p>
-<ul>
-<li><strong>Prowess envoys</strong> — descending order of <strong>Prowess</strong></li>
-</ul>
-<ul>
-<li><strong>Cunning envoys</strong> — descending order of <strong>Cunning</strong></li>
-</ul>
-<ul>
-<li><strong>Piety envoys</strong> — descending order of <strong>Piety</strong></li>
-</ul>
-<ul>
-<li><strong>Industry</strong> <strong>envoys</strong> — descending order of <strong>Industry</strong></li>
-</ul>
-<p><em>The Time to Act is Now: Once all players have had an opportunity to <a class="term" href="glossary.html#send-an-envoy">send an envoy</a> of that <a class="term" href="glossary.html#domain">domain</a>, no further envoys of that <a class="term" href="glossary.html#domain">domain</a> may be sent this turn. Then repeat for Cunning, then Piety, then Industry. All remaining envoys must be sent for Industry.</em></p>
-<h3 id='actions-voting'>Actions &amp; Voting</h3>
-<ul>
-<li>To <strong><a class="term" href="glossary.html#perform">perform</a></strong> an <strong>action</strong>, you <strong><a class="term" href="glossary.html#send-an-envoy">send an envoy</a></strong>, then <strong>players</strong> <strong><a class="term" href="glossary.html#vote">vote</a></strong> and you calculate the net <strong><a class="term" href="glossary.html#influence">influence</a></strong> outcome to determine whether the <strong><a class="term" href="glossary.html#envoy">envoy</a> passes</strong> or <strong>fails</strong>.</li>
-<li>For the full procedure (including <strong><a class="term" href="glossary.html#influence">influence</a></strong> caps, outcomes, and terminology), see <strong>actions &amp; voting → action mechanics</strong>.</li>
-</ul>
-<h3 id='<a class="term" href="glossary.html#battle">battle</a>-phase-summary'><a class="term" href="rules-battle-phase.html">Battle Phase</a> (summary)</h3>
-<p>If a player performed a <strong><a class="term" href="glossary.html#battle">Battle</a></strong> or <strong><a class="term" href="glossary.html#siege">Siege</a></strong> <a class="term" href="glossary.html#move">Move</a> action this turn, <a class="term" href="glossary.html#resolve">resolve</a> it now — see the <strong>Battles &amp; Sieges</strong> section for the full procedure.</p><div class="pagefoot"><div class='related'><span class='rl'>Related:</span> <a class='term' href='glossary.html'>Glossary</a> <a class='term' href='type-civic.html'>Civic</a> <a class='term' href='factions.html'>Factions</a> <a class='term' href='rules-bandit-mechanics.html'>Bandit Mechanics</a> <a class='term' href='turn-sequence.html'>Turn Sequence</a> <a class='term' href='rules-introduction.html'>Introduction</a></div><div class='prevnext'><a class='pn prev' href='rules-core-principles.html'>← Core Principles</a><a class='pn next' href='rules-council-phase.html'>Council Phase →</a></div></div></main></div>
+</ul><div class="pagefoot"><div class='related'><span class='rl'>Related:</span> <a class='term' href='glossary.html'>Glossary</a> <a class='term' href='rules-infrastructure.html'>Infrastructure</a> <a class='term' href='type-civic.html'>Civic</a> <a class='term' href='rules-settlements.html'>Settlements</a> <a class='term' href='factions.html'>Factions</a> <a class='term' href='rules-cunning-actions.html'>Cunning Actions</a></div><div class='prevnext'><a class='pn prev' href='rules-the-turn.html'>← The Turn</a><a class='pn next' href='rules-council-phase.html'>Council Phase →</a></div></div></main></div>
 <script src="search.js"></script>
-<div class="versionstamp">Renown v0.4.9.2.5</div></body></html>
+<div class="versionstamp">Renown v0.4.9.2.7</div></body></html>

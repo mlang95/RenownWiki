@@ -6,10 +6,13 @@
 <a href='rules-renown.html'>Renown</a>
 <a href='rules-introduction.html' class=active>Introduction</a>
 <a href='rules-core-principles.html'>Core Principles</a>
-<a href='rules-phase-reference.html'>Phase Reference</a>
+<a href='rules-the-turn.html'>The Turn</a>
+<a href='rules-empire-phase.html'>Empire Phase</a>
 <a href='rules-council-phase.html'>Council Phase</a>
 <a href='rules-envoy-phase.html'>Envoy Phase</a>
+<a href='rules-battle-phase.html'>Battle Phase</a>
 <a href='rules-rest-phase.html'>Rest Phase</a>
+<a href='rules-seasons.html'>Seasons</a>
 <a href='rules-action-mechanics.html'>Action Mechanics</a>
 <a href='rules-influence.html'>Influence</a>
 <a href='rules-prowess-actions.html'>Prowess Actions</a>
@@ -17,19 +20,18 @@
 <a href='rules-piety-actions.html'>Piety Actions</a>
 <a href='rules-industry-actions.html'>Industry Actions</a>
 <a href='rules-diplomacy-actions.html'>Diplomacy Actions</a>
-<a href='rules-diplomacy-treaties.html'>Diplomacy &amp; Treaties</a>
 <a href='rules-domains-standings.html'>Domains &amp; Standings</a>
-<a href='rules-public-order.html'>Public Order</a>
-<a href='rules-treasury-upkeep.html'>Treasury &amp; Upkeep</a>
-<a href='rules-trade-income.html'>Trade &amp; Income</a>
+<a href='rules-diplomacy-treaties.html'>Diplomacy &amp; Treaties</a>
 <a href='rules-settlements.html'>Settlements</a>
 <a href='rules-infrastructure.html'>Infrastructure</a>
 <a href='rules-territory-terrain.html'>Territory &amp; Terrain</a>
+<a href='rules-public-order.html'>Public Order</a>
+<a href='rules-treasury-upkeep.html'>Treasury &amp; Upkeep</a>
+<a href='rules-trade-income.html'>Trade &amp; Income</a>
 <a href='rules-armies.html'>Armies</a>
 <a href='rules-battle-phase.html'>Battle Phase</a>
 <a href='rules-siege-warfare.html'>Siege Warfare</a>
-<a href='rules-seasons.html'>Seasons</a>
-<a href='rules-bandit-mechanics.html'>Bandit Mechanics</a>
+<a href='rules-bandits.html'>Bandits</a>
 <div class="navhead">Pursuits</div>
 <a href='pursuits.html'>Overview</a>
 <a href='type-raw-materials.html'>Raw Materials</a>
@@ -81,7 +83,7 @@
 <p>Every action you want to take has to survive a <a class="term" href="glossary.html#vote">vote</a>. When you <a class="term" href="glossary.html#move">move</a> your army, <a class="term" href="glossary.html#build">build</a> a road, or sabotage a rival, every other player at the table gets to spend political <a class="term" href="glossary.html#influence">influence</a> to support or bury it. The strength of your relationships, the alliances you’ve built, and the favors you’re owed determine whether your plans succeed — not just your resources.</p>
 <p>Between turns, you’re managing a medieval economy: taxing <a class="term" href="rules-settlements.html">settlements</a>, building pursuit chains from raw materials into production into powerful pursuits and monuments, trading with neighbors, and keeping your <a class="term" href="glossary.html#public-order">Public Order</a> <a class="term" href="type-civic.html#stable">stable</a> enough that your people don’t descend into open rebellion. Stretch too thin and your armies can’t march, your tax income plummets, and your enemies smell blood.</p>
 <p>Combat exists and matters — sieging <a class="term" href="rules-settlements.html">settlements</a>, clashing armies in tactical skirmishes with a <a class="term" href="glossary.html#tactic">tactic</a>-versus-<a class="term" href="glossary.html#tactic">tactic</a> matrix — but war is expensive, politically punishing, and rarely the fastest path to victory. You can win by building a Wonder, generating 10,000 gold a turn for five consecutive turns, vassalizing a rival, sustaining Living Saints-level devotion for five turns, or simply outlasting every <a class="term" href="glossary.html#alliance">alliance</a> but your own.</p>
-<p>The Duke variant adds a GM-like referee who manages <a class="term" href="rules-bandit-mechanics.html">bandits</a>, resolves disputes, enables Private Actions and asymmetric information, creates global events and enemies, and keeps the world breathing around the players.</p>
+<p>The Duke variant adds a GM-like referee who manages bandits, resolves disputes, enables Private Actions and asymmetric information, creates global events and enemies, and keeps the world breathing around the players.</p>
 <p>This game is for:</p>
 <ul>
 <li>friends who are looking for a rich &amp; deep mechanic that allows you to immersive &amp; invest yourself in a more complicated experience.</li>
@@ -95,31 +97,11 @@
 <h3 id='how-to-win-edicts'>How to Win (Edicts)</h3>
 <p>Whichever player has accomplished the most <strong>Edicts</strong> before the last <a class="term" href="glossary.html#alliance">Alliance</a> <a class="term" href="glossary.html#standing">standing</a> condition is met, from the list below, wins the game:</p>
 <p>When an <a class="term" href="glossary.html#edict">Edict</a> is completed, increase the <a class="term" href="glossary.html#renown">Renown</a> tracker by 1, and mark your completion of that <a class="term" href="glossary.html#edict">Edict</a>. Any player may complete any <a class="term" href="glossary.html#edict">Edict</a> multiple times.</p>
-<p>{{TABLE:edicts}}</p>
+<table class='pursuits'><thead><tr><th><a class="term" href="glossary.html#edict">Edict</a></th><th>Type</th><th>Requirement</th></tr></thead><tbody><tr><td>Sovereign <a class="term" href="glossary.html#standing">Standing</a></td><td><a class="term" href="glossary.html#standing">Standing</a></td><td><a class="term" href="glossary.html#reach">Reach</a> a Sovereign <a class="term" href="glossary.html#standing">Standing</a> (<a class="term" href="glossary.html#domain">Domain</a> value 10) in any <a class="term" href="glossary.html#domain">Domain</a>.</td></tr><tr><td><a class="term" href="glossary.html#monument">Monument</a></td><td><a class="term" href="glossary.html#build">Build</a></td><td>Complete (<a class="term" href="glossary.html#build">build</a>) a <a class="term" href="glossary.html#monument">Monument</a> pursuit.</td></tr><tr><td>Wonder</td><td><a class="term" href="glossary.html#build">Build</a></td><td>Complete a World Wonder.</td></tr><tr><td>Wealth</td><td>Economy</td><td>Generate 10,000 gold per turn for five consecutive turns.</td></tr><tr><td>Vassalize</td><td>Conquest</td><td>Vassalize a rival player (control their capital with no other <a class="term" href="rules-settlements.html">settlements</a>/armies under them).</td></tr><tr><td>Living Saints</td><td>Piety</td><td>Sustain <a class="term" href="glossary.html#public-order">Public Order</a> 10 (Living Saints) for five consecutive turns (Pious Timer).</td></tr><tr><td>Last <a class="term" href="glossary.html#alliance">Alliance</a> <a class="term" href="glossary.html#standing">Standing</a></td><td>Endgame</td><td>Be the last <a class="term" href="glossary.html#alliance">alliance</a> <a class="term" href="glossary.html#standing">standing</a> — the game-ending stop condition.</td></tr></tbody></table>
 <p><em>Note: if any Edicts requires consecutive turns, the timer must increment each turn. If for any reason the timer does not increment, remove the timer until restarted.</em></p>
-<h3 id='vassalization'>Vassalization</h3>
-<p>To <strong>vassalize</strong> a <strong>player</strong>:</p>
-<ul>
-<li><strong>Control</strong> that <strong>player’s capital</strong> <strong><a class="term" href="rules-settlements.html">settlement</a></strong> and the <strong>player</strong> has no other <strong><a class="term" href="rules-settlements.html">settlements</a></strong> or <strong>armies</strong> under it’s <strong>control</strong>.</li>
-</ul>
-<ul>
-<li>At the <strong>end of the Rest Phase</strong>, return all <strong><a class="term" href="rules-settlements.html">settlements</a></strong> you <strong>control</strong> that were <strong>chartered</strong> by that <strong>player</strong> to that <strong>player</strong>. You become that player’s <strong><a class="term" href="glossary.html#suzerain">Suzerain</a></strong>, and they become your <strong><a class="term" href="glossary.html#vassal">vassal</a></strong>.</li>
-</ul>
-<p><strong>While <a class="term" href="glossary.html#suzerain">Suzerain</a>:</strong></p>
-<ul>
-<li>The <strong><a class="term" href="glossary.html#vassal">vassal</a></strong> immediately ends all existing <strong>treaties</strong> and inherits all <strong>treaties</strong> held by the <strong><a class="term" href="glossary.html#suzerain">Suzerain</a></strong>. For the remainder of the game, the <strong><a class="term" href="glossary.html#vassal">vassal</a>’s</strong> Treaties exactly mirror the <strong><a class="term" href="glossary.html#suzerain">Suzerain</a></strong>—any <strong><a class="term" href="glossary.html#treaty">treaty</a></strong> the <strong><a class="term" href="glossary.html#suzerain">Suzerain</a></strong> signs, ends, or has ended for them applies identically to the <strong><a class="term" href="glossary.html#vassal">vassal</a></strong>. The <strong><a class="term" href="glossary.html#vassal">vassal</a></strong> counts as being in a <strong>military</strong> and <strong>defensive</strong> <strong><a class="term" href="glossary.html#alliance">alliance</a></strong> with the <strong><a class="term" href="glossary.html#suzerain">Suzerain</a></strong>, but has no say in other <strong>player’s</strong> joining the <strong>suzerains</strong> alliances.</li>
-<li>The <strong><a class="term" href="glossary.html#vassal">vassal</a></strong> cannot <strong><a class="term" href="glossary.html#perform">perform</a> <a class="term" href="glossary.html#diplomacy">Diplomacy</a> actions</strong> and cannot be the <strong>target</strong> of <strong><a class="term" href="glossary.html#diplomacy">Diplomacy</a> actions</strong>.</li>
-<li>The <strong><a class="term" href="glossary.html#suzerain">Suzerain</a></strong> collects:</li>
-<ul>
-<li>Half of the <strong><a class="term" href="glossary.html#vassal">vassal</a>’s trade income</strong> from trading with other <strong>players</strong></li>
-<li>The first <strong>{{VAL:VASSAL_INFLUENCE_TAKE}} <a class="term" href="glossary.html#influence">influence</a></strong> the <strong><a class="term" href="glossary.html#vassal">vassal</a></strong> generates each turn</li>
-</ul>
-</ul>
-<p><em>Note: mutual exchange (empire phase of each turn): if both players agree, you may exchange up to {{VAL:VASSAL_EXCHANGE_CAP}} gold, exchange ownership of <a class="term" href="rules-settlements.html">settlements</a>, or transfer forces (so long as armies are <a class="term" href="glossary.html#adjacent">adjacent</a> to each other or an army is <a class="term" href="glossary.html#adjacent">adjacent</a> to a garrison), in either direction.</em></p>
-<p><em>Note: if the <a class="term" href="glossary.html#suzerain">suzerain</a> becomes vassalized, both the original <a class="term" href="glossary.html#vassal">vassal</a> and the <a class="term" href="glossary.html#suzerain">suzerain</a> become vassals to the new <a class="term" href="glossary.html#suzerain">suzerain</a>, and the new <a class="term" href="glossary.html#suzerain">suzerain</a> gains the benefits for each <a class="term" href="glossary.html#vassal">vassal</a>.</em></p>
 <h3 id='game-structure'>Game Structure</h3>
 <p><a class="term" href="glossary.html#renown">Renown</a> takes place over multiple Eras, represented by four distinct phases of the game, that grant bonuses to all players once that Era becomes active. An Era becomes active once the <a class="term" href="glossary.html#renown">Renown</a> tracker equals the Era requirement.</p>
-<p>{{TABLE:eras}}</p>
+<table class='pursuits'><thead><tr><th>Era</th><th><a class="term" href="glossary.html#renown">Renown</a></th><th>Armies</th><th>Cities</th><th><a class="term" href="glossary.html#influence">Influence</a>/Turn</th><th>Envoys</th><th>Unlocks</th></tr></thead><tbody><tr><td>Founding</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1 Council + 1 <a class="term" href="glossary.html#personal-envoy">Personal Envoy</a> per turn</td><td></td></tr><tr><td>Ascension</td><td>8</td><td>2</td><td>1</td><td>2</td><td>Council Envoys <a class="term" href="glossary.html#perform">perform</a> 2 actions of that <a class="term" href="glossary.html#domain">domain</a></td><td>May <a class="term" href="glossary.html#resolve">resolve</a> <a class="term" href="glossary.html#charter">Charter</a> Cities</td></tr><tr><td>Eminence</td><td>18</td><td>3</td><td>2</td><td>3</td><td>Personal Envoys <a class="term" href="glossary.html#perform">perform</a> 2 actions of that <a class="term" href="glossary.html#domain">domain</a></td><td>May form Military Alliances</td></tr><tr><td>Zenith</td><td>30</td><td>4</td><td>3</td><td>4</td><td>Send 2 Personal Envoys per turn</td><td>May form Defensive Alliances</td></tr></tbody></table>
 <h3 id='turn-outline'>Turn Outline</h3>
 <p>Each turn flows through five phases, then passes the Host and repeats:</p>
 <ul>
@@ -139,6 +121,6 @@
 <li><strong><a class="term" href="glossary.html#public-order">Public Order</a></strong> — the stability of your <a class="term" href="glossary.html#realm">realm</a>, reduced by Doubt. Low <a class="term" href="glossary.html#public-order">Public Order</a> weakens you; certain effects key off it.</li>
 <li><strong>Faith</strong> — devotion, generated by Piety pursuits; powers religious effects and offsets Doubt.</li>
 <li><strong>Doubt</strong> — instability. Lowers <a class="term" href="glossary.html#public-order">Public Order</a>. Applied to yourself by some powerful pursuits, or to others as a Cunning/Piety weapon.</li>
-</ul><div class="pagefoot"><div class='related'><span class='rl'>Related:</span> <a class='term' href='glossary.html'>Glossary</a> <a class='term' href='turn-sequence.html'>Turn Sequence</a> <a class='term' href='factions.html'>Factions</a> <a class='term' href='rules-phase-reference.html'>Phase Reference</a> <a class='term' href='type-monument.html'>Monument</a> <a class='term' href='type-civic.html'>Civic</a></div><div class='prevnext'><a class='pn prev' href='rules-renown.html'>← Renown</a><a class='pn next' href='rules-core-principles.html'>Core Principles →</a></div></div></main></div>
+</ul><div class="pagefoot"><div class='related'><span class='rl'>Related:</span> <a class='term' href='glossary.html'>Glossary</a> <a class='term' href='turn-sequence.html'>Turn Sequence</a> <a class='term' href='type-civic.html'>Civic</a> <a class='term' href='factions.html'>Factions</a> <a class='term' href='rules-public-order.html'>Public Order</a> <a class='term' href='rules-domains-standings.html'>Domains &amp; Standings</a></div><div class='prevnext'><a class='pn prev' href='rules-renown.html'>← Renown</a><a class='pn next' href='rules-core-principles.html'>Core Principles →</a></div></div></main></div>
 <script src="search.js"></script>
-<div class="versionstamp">Renown v0.4.9.2.5</div></body></html>
+<div class="versionstamp">Renown v0.4.9.2.7</div></body></html>
