@@ -10268,7 +10268,8 @@ function mapBanner(p,cx,cy,R){const k=herKey(p);if(!k)return "";const w=R*.62;
   return '<svg x="'+(cx-R*1.02).toFixed(1)+'" y="'+(cy-R*1.0).toFixed(1)+'" width="'+w.toFixed(1)+'" height="'+w.toFixed(1)+'" viewBox="0 0 '+herN(k)+' '+herN(k)+'" pointer-events="none">'+herPaths(k,p.color)+'</svg>';}
 // player token: heraldry when the player has one, else a dot in the player's colour
 function pTok(p,px){if(!p)return "";const h=heraldOf(p,px);if(h)return '<span class="ptok her">'+h+'</span>';
-  const r=(px/2-1).toFixed(1);return '<span class="ptok" style="display:inline-flex;vertical-align:-2px;margin-right:4px;line-height:0"><svg width="'+px+'" height="'+px+'" viewBox="0 0 '+px+' '+px+'"><circle cx="'+px/2+'" cy="'+px/2+'" r="'+r+'" fill="'+esc(p.color||"#888")+'" stroke="#000a" stroke-width="1"/></svg></span>';}// ===================== CHROME: Inbox · HUD drill-down · read-only badge · phone phase pill · setup stepper =====================
+  const r=(px/2-1).toFixed(1);return '<span class="ptok" style="display:inline-flex;vertical-align:-2px;margin-right:4px;line-height:0"><svg width="'+px+'" height="'+px+'" viewBox="0 0 '+px+' '+px+'"><circle cx="'+px/2+'" cy="'+px/2+'" r="'+r+'" fill="'+esc(p.color||"#888")+'" stroke="#000a" stroke-width="1"/></svg></span>';}
+// ===================== CHROME: Inbox · HUD drill-down · read-only badge · phone phase pill · setup stepper =====================
 
 // ---- Inbox: everything asking for attention on the active board, in one list (top bar ⚑). Resolve or ignore each.
 //   flags      rule flags on the board (ignore = until the flag's text changes, or it clears and comes back)
