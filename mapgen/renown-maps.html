@@ -1838,6 +1838,31 @@ function setupFits(m, zone, town, R) {
   }
   return null;
 }
+function equalizeStarts(m, p) {
+  /* Equal starts (preset equal_starts): every start-zone Town hill has each of the
+     map type's palette terrains (Grassland aside) within a Town's Reach, so every
+     seat can root the same Raw Materials. A missing terrain becomes one Grassland
+     hex 3..R from the Town, extending a patch of it where there is one, toward the
+     board edge, clear of every start rosette and Settlement spot. Added hexes are
+     listed in m.equalized (not zoneNotes, which count as violations). */
+  const R = p.start_terrain_range || 4, want = (p.palette || []).filter(t => t !== 'plains');
+  const keep = new Set(), mark = (c) => { keep.add(key(c[0], c[1])); for (const n of m.nbrs(c)) keep.add(key(n.col, n.row)); };
+  for (const z of m.startZones || []) for (const t of z.towns || []) mark(t);
+  for (const st of m.settlements || []) for (const s of st) mark(s);
+  const ctr = [Math.floor((m.width - 1) / 2), Math.floor((m.height - 1) / 2)];
+  m.equalized = [];
+  for (const z of m.startZones || []) for (const t of z.towns || []) for (const T of want) {
+    if (m.within(t, R).some(h => h.terrain === T)) continue;
+    let best = null, bs = -Infinity;
+    for (const h of m.within(t, R)) {
+      const c = [h.col, h.row], d = dist(c, t);
+      if (d < 3 || h.terrain !== 'plains' || keep.has(key(c[0], c[1])) || m.nbrs(c).length !== 6) continue;
+      const s = 2 * m.nbrs(c).filter(n => n.terrain === T).length + 0.3 * dist(c, ctr) + 0.1 * d;
+      if (s > bs) { bs = s; best = h; }
+    }
+    if (best) { best.terrain = T; m.equalized.push({ seat: z.seat, town: t.slice(), terrain: T, at: [best.col, best.row] }); }
+  }
+}
 function placeStartZones(m, p, rng) {
   /* Strategy B, massaged to the terrain: each seat starts at its place on the
      ring; if its zone cannot hold START_TOWNS legal Town hills (sea,
@@ -2139,6 +2164,7 @@ function build(p, seed) {
   }
   ensureRegionMaterial(m, p);
   placeStartZones(m, p, rng);
+  if (p.equal_starts) equalizeStarts(m, p);   // per map type, off unless the preset sets it: other maps generate exactly as before
   carveHills(m, p, p.hill_sep === undefined ? HILL_SEP : p.hill_sep);
   markHills(m, p.hill_sep === undefined ? HILL_SEP : p.hill_sep,
             hillPins(m), zoneBlock(m.startZones));
@@ -2244,15 +2270,18 @@ root.RenownGen = { RNG, HexMap, dist, key, generateRegion, exportMap, importMap,
    "mountain",
    "plains",
    "tundra",
-   "water"
+   "water",
+   "wetland"
   ],
   "shares": {
    "mountain": 0.3,
-   "tundra": 0.1
+   "tundra": 0.1,
+   "wetland": 0.05
   },
   "morphology": {
    "mountain": "scatter",
-   "tundra": "blob"
+   "tundra": "blob",
+   "wetland": "perimeter"
   },
   "buffers": [],
   "band": {},
@@ -2292,8 +2321,24 @@ root.RenownGen = { RNG, HexMap, dist, key, generateRegion, exportMap, importMap,
   },
   "climate": "wastes",
   "notes": "Herding clans under a chief \u2014 the line Vogen reached in 1136 and got no further. Broken country rather than a wall: peaks stand alone or join in short ridges, occasionally two hexes thick. Every route exists and none is fast, so an army bleeds tempo everywhere instead of being stopped in one pass. No forest, so forestry is unavailable.",
+  "perimeter": {
+   "wetland": [
+    16,
+    [
+     10,
+     18
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     1,
+     3
+    ]
+   ]
+  },
   "massif": {},
-  "perimeter": {},
   "core": {},
   "ridge": {}
  },
@@ -3857,7 +3902,7 @@ for (const k of Object.keys(STYLE.climates)) {
   PALETTES[k] = o;
 }
 const BASE = PALETTES[STYLE.default_climate];
-const TERRAIN_REF = {"terrain":{"Grassland":{"Effect":"Where Settlements can be chartered (a Hill counts).","Raw Materials":[]},"Wetlands":{"Effect":"Speed -1 per Territory moved through","Raw Materials":["Salt Works","Peat Bog"]},"Tundra":{"Effect":"gain Strained","Raw Materials":["Quarry","Salt Works"]},"Mountains":{"Effect":"Impassable","Raw Materials":["Furnace","Quarry"]},"Water":{"Effect":"Must end move after moving over 1 Water Territory (must end on land)","Raw Materials":["Fishmongery"]},"Forest":{"Effect":"Speed -1 per Territory moved through","Raw Materials":["Forestry"]},"Hill":{"Effect":"Gains Seize the Initiative."}},"tactical":{"Hill":{"identify":"Grassland fully ringed by grassland","effect":"If you Battle while your army is on a Hill, gain +1 Initiative every Skirmish. A Hill counts as Open Field: Ranged Weapons gain +1 to Strike."},"Open Field":{"identify":"Any other grassland","effect":"Ranged Weapons gain +1 to Strike."},"Forest":{"identify":"Forest","effect":"You may only play Scout, Ambush, Flank, or Defensive Formation. The defending player Seizes the Initiative."},"Mire":{"identify":"Wetlands","effect":"Gain Unwieldy and Immune Steady; -1 to Save."},"Tundra":{"identify":"Tundra","effect":"Gain Strained."},"Mountains":{"identify":"Mountains","effect":"Impassable."},"Water":{"identify":"Water","effect":"Must end Move after moving 1 Water Territory. Cannot Skirmish or Siege move."}},"tactical_global":["Any player may Fall Back after the first Skirmish."],"movement":{"Dirt Roads":{"Effect":"If you start a Move action within your Province, gain Speed +1"},"Stone Roads":{"Effect":"If you start a Move action within your Province, gain additional Speed +1"},"Bridge":{"Effect":"Immune Water Effect."},"Tunneler":{"Effect":"Immune Mountain Effect"},"Ancient Wilds":{"Effect":["Ignore all Speed -X from Terrain","Other armies gain Speed -2 in your Province."]},"Shipyard":{"Effect":"Immune Water Effect"}},"version":"0.4.9.9.16-d10-STrue","source":"CE"};
+const TERRAIN_REF = {"terrain":{"Grassland":{"Effect":"Where Settlements can be chartered (a Hill counts).","Raw Materials":[]},"Wetlands":{"Effect":"Speed -1 per Territory moved through","Raw Materials":["Salt Works","Peat Bog"]},"Tundra":{"Effect":"gain Strained","Raw Materials":["Quarry","Salt Works"]},"Mountains":{"Effect":"Impassable","Raw Materials":["Furnace","Quarry"]},"Water":{"Effect":"Must end move after moving over 1 Water Territory (must end on land)","Raw Materials":["Fishmongery"]},"Forest":{"Effect":"Speed -1 per Territory moved through","Raw Materials":["Forestry"]},"Hill":{"Effect":"Gains Seize the Initiative."}},"tactical":{"Hill":{"identify":"Grassland fully ringed by grassland","effect":"If you Battle while your army is on a Hill, gain +1 Initiative every Skirmish. A Hill counts as Open Field: Ranged Weapons gain +1 to Strike."},"Open Field":{"identify":"Any other grassland","effect":"Ranged Weapons gain +1 to Strike."},"Forest":{"identify":"Forest","effect":"You may only play Scout, Ambush, Flank, or Defensive Formation. The defending player Seizes the Initiative."},"Mire":{"identify":"Wetlands","effect":"Gain Unwieldy and Immune Steady; -1 to Save."},"Tundra":{"identify":"Tundra","effect":"Gain Strained."},"Mountains":{"identify":"Mountains","effect":"Impassable."},"Water":{"identify":"Water","effect":"Must end Move after moving 1 Water Territory. Cannot Skirmish or Siege move."}},"tactical_global":["Any player may Fall Back after the first Skirmish."],"movement":{"Dirt Roads":{"Effect":"If you start a Prowess action within your Province, gain Speed +1"},"Stone Roads":{"Effect":"If you start a Prowess action within your Province, gain additional Speed +2"},"Bridge":{"Effect":"Immune Water Effect."},"Tunneler":{"Effect":"Immune Mountain Effect"},"Ancient Wilds":{"Effect":["Ignore all Speed -X from Terrain","Other armies gain Speed -2 in your Province."]},"Sea Lanes":{"Effect":"Immune Water Effect"}},"version":"0.4.9.9.19-d10-STrue","source":"CE"};
 /* pixel terrain props: GENERATED from sprites.py (prop: sprites + SCATTER), the
    same art and scatter the settlement board's map draws */
 const SPR = {"scatter":{"plains":{"layers":[{"p":[["tuft_a",2],["tuft_b",2],["tuft_c",1]],"n":[3,5],"r":0.72},{"p":[["flower",1]],"n":[0,1],"r":0.7}]},"water":{"layers":[{"p":[["wave_a",1],["wave_b",2]],"n":[1,3],"r":0.68}]},"forest":{"layers":[{"p":[["pine",1],["pine_s",2]],"n":[4,6],"r":0.6,"g":-3}]},"mountain":{"layers":[{"p":[["peak",1]],"n":[1,1],"r":0.12},{"p":[["peak_s",1]],"n":[1,2],"r":0.68,"g":-4}]},"hill":{"layers":[{"p":[["hump",1]],"n":[2,2],"r":0.42},{"p":[["tuft_a",1],["tuft_b",1]],"n":[1,2],"r":0.72}]},"tundra":{"tone":[0.16,0.1,0.42],"layers":[{"p":[["boulder",2],["blocks",1],["blocks_b",1]],"n":[1,2],"r":0.6},{"p":[["saltpan",1]],"n":[0,1],"r":0.55},{"p":[["crack_l",1]],"n":[1,2],"r":0.62}]},"wetland":{"layers":[{"p":[["pool",2],["pool_s",2]],"n":[2,3],"r":0.6},{"p":[["reeds",2],["cattail",2]],"n":[2,3],"r":0.66}]}},"S":{"prop:tuft_a":[".H.","HSH","ggg"],"prop:tuft_b":["H.H","SHS","ggg"],"prop:tuft_c":["H..H",".HH.","gggg"],"prop:wave_a":["HHH..","...HH","ggggg"],"prop:wave_b":["HH.","..H","ggg"],"prop:pine":["...D...","..DHD..",".DHHSD.","..DHD..",".DHHSD.","DHHHSSD","DDDDDDD","...D...","ggggggg"],"prop:pine_s":["..D..",".DHD.","DHHSD",".DHD.","DHHSD","DDDDD","..D..","ggggg"],"prop:peak":[".....D......","....DHD.....","...DHHSD....","...DHHSSD...","..DHHHSDSD..","..DHHHSSSD..",".DHHHSSSDSD.",".DHHSSSSSSD.","DHHSSSSDSSSD","DDDDDDDDDDDD","gggggggggggg"],"prop:peak_s":["...D...","..DHD..",".DHHSD.","DHHSSSD","DDDDDDD","ggggggg"],"prop:hump":["..DDDD..",".DHHHSD.","DHHHHSDD","DDDDDDDD","gggggggg"],"prop:pool":[".DDDDDD.","DHHHDDDD",".DDDDDD.","gggggggg"],"prop:pool_s":[".DDDD.","DHHDDD",".DDDD.","gggggg"],"prop:reeds":["H..H","H.H.","HH.H",".HH.","gggg"],"prop:cattail":["D..D","D..D","H.H.","HHH.","gggg"],"prop:boulder":[".DDDD.","DHHSSD","DHSSSD",".DDDD.","gggggg"],"prop:blocks":["..DDDDD..","..DHHSD..","..DHSSD..","DDDDDDDDD","DHHSDHHSD","DHSSDHSSD","DDDDDDDDD","ggggggggg"],"prop:blocks_b":["DDDDD....","DHHSD....","DHSSDDDDD","DDDDDHHSD","....DHSSD","....DDDDD","ggggggggg"],"prop:saltpan":["..DDDDD..",".DHHHHHD.","DHHHDHHHD",".DDDDDDD.","ggggggggg"],"prop:crack_l":["D......",".DD....","...D.DD","....D..","ggggggg"],"prop:flower":["y","S","g"]},"P":{"k":"#0e1220","w":"#e8d8b0","t":"#a8a0a0","u":"#605a68","r":"#a03a3a","d":"#2a1f30","y":"#ffd27a","f":"#ff9a3a","s":"#e8e4dc","m":"#8a96b0","b":"#8a5a3a","l":"#3a7a2a","c":"#c83a3a","a":"#5a4ab0","e":"#3a7ac8","n":"#24563a","g":"#2f4a2a","h":"#e0b088","p":"#9aa0b0","P":"#686e7c","q":"#c4c8d2","x":"#c8c0b4","H":"#a8c878","S":"#5a7a3a","D":"#34481f","W":"#afa08a","R":"#7d3237","B":"#6d4837","T":"#82797e","U":"#504857","Y":"#ec9d64","M":"#6d728a","C":"#993237","L":"#355f2c","E":"#355f9a","Z":"#afa9a8","A":"#4c3d8a","F":"#ec783a","N":"#264637","K":"#0e1220","j":"#a9846e"}};
